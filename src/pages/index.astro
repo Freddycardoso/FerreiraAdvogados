@@ -125,10 +125,12 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
     <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
 
-  <body class="bg-slate-950 text-slate-300 antialiased selection:bg-slate-700 selection:text-white">
+  <body class="bg-black text-slate-300 antialiased selection:bg-slate-700 selection:text-white relative min-h-screen">
+    <!-- Grid Overlay -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
     <!-- 1. HEADER FIXO -->
-    <header class="fixed top-0 inset-x-0 z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/10">
+    <header class="fixed top-0 inset-x-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/10">
       <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-6">
         <a href="#inicio" aria-label="Ferreira Advogados - início" class="shrink-0">
           <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogados" class="h-16 w-auto" width="190" height="64" />
@@ -144,9 +146,9 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-emerald-50 border border-emerald-500/30 bg-emerald-600/20 hover:bg-emerald-600/40 rounded-md transition-colors"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-900 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-400 hover:from-white hover:via-slate-200 hover:to-slate-300 border border-slate-400/50 rounded-md transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
         >
-          <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
+          <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
           WhatsApp
         </a>
       </div>
@@ -175,9 +177,9 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-b from-emerald-600 to-emerald-800 hover:from-emerald-500 hover:to-emerald-700 rounded-md shadow-lg shadow-emerald-900/30 transition-all active:scale-[0.98] ring-1 ring-emerald-500/30"
+                class="inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-slate-900 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-400 hover:from-white hover:via-slate-200 hover:to-slate-300 rounded-md shadow-xl shadow-white/5 transition-all active:scale-[0.98] border border-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
               >
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
+                <svg class="w-5 h-5 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
                 Falar com um Advogado Imediatamente
               </a>
             </div>
@@ -219,7 +221,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
       </section>
 
       <!-- 3. ÁREAS DE ATUAÇÃO -->
-      <section id="areas" class="py-20 lg:py-28 border-t border-white/10 bg-slate-900/40">
+      <section id="areas" class="py-20 lg:py-28 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-5 lg:px-8">
           <div class="max-w-2xl reveal">
             <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-[1.12] tracking-tight">
@@ -244,12 +246,6 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
                     <h3 class="font-display text-2xl font-semibold text-white leading-snug transition-transform duration-300 ease-out group-hover:translate-x-1.5">
                       {a.area}
                     </h3>
-                    {a.area === "Direito Criminal" && (
-                      <span class="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-slate-950 bg-slate-300 rounded-sm">
-                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
-                        Plantão 24h
-                      </span>
-                    )}
                   </div>
                 </div>
                 <div class="md:w-2/3 flex flex-col sm:flex-row gap-8 sm:items-center justify-between">
@@ -261,7 +257,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
                     href={wa(a.msg)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="shrink-0 inline-flex items-center justify-center p-4 rounded-full bg-slate-800 text-slate-300 group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                    class="shrink-0 inline-flex items-center justify-center p-4 rounded-full bg-slate-900 border border-slate-700 text-slate-300 group-hover:bg-gradient-to-b group-hover:from-slate-200 group-hover:via-slate-100 group-hover:to-slate-400 group-hover:border-slate-400 group-hover:text-slate-900 transition-all duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
                     aria-label={`Falar sobre ${a.area}`}
                   >
                     <svg class="w-5 h-5 transition-transform duration-300 ease-out group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -316,7 +312,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
       </section>
 
       <!-- 5. FAQ / DÚVIDAS FREQUENTES -->
-      <section id="faq" class="py-20 lg:py-28 border-t border-white/10 bg-slate-900/40">
+      <section id="faq" class="py-20 lg:py-28 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div class="lg:col-span-5 reveal">
             <h2 class="font-display text-3xl sm:text-4xl font-semibold text-white leading-[1.12] tracking-tight">
@@ -381,13 +377,13 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-10 inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto px-8 sm:px-12 py-6 text-white bg-gradient-to-b from-emerald-600 to-emerald-800 hover:from-emerald-500 hover:to-emerald-700 rounded-md shadow-xl shadow-emerald-900/40 transition-all active:scale-[0.98] ring-1 ring-emerald-500/30"
+            class="mt-10 inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto px-8 sm:px-12 py-6 text-slate-900 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-400 hover:from-white hover:via-slate-200 hover:to-slate-300 rounded-md shadow-2xl shadow-white/5 transition-all active:scale-[0.98] border border-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
           >
             <span class="inline-flex items-center gap-3 text-base font-semibold">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
+              <svg class="w-6 h-6 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
               Agendar consulta técnica pelo WhatsApp
             </span>
-            <span class="font-display text-3xl sm:text-4xl font-bold tabular-nums tracking-tight text-emerald-50">(35) 99753-3336</span>
+            <span class="font-display text-3xl sm:text-4xl font-bold tabular-nums tracking-tight text-slate-900">(35) 99753-3336</span>
           </a>
         </div>
       </section>
@@ -396,12 +392,12 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
 
     <!-- 7. FLOATING WHATSAPP BUTTON -->
     <div class="fixed bottom-6 right-6 z-50 group">
-      <div class="absolute -inset-2 bg-emerald-500 rounded-full opacity-20 group-hover:opacity-50 blur-lg transition-opacity duration-300"></div>
+      <div class="absolute -inset-2 bg-slate-300 rounded-full opacity-20 group-hover:opacity-40 blur-lg transition-opacity duration-300"></div>
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="relative flex items-center justify-center w-14 h-14 bg-gradient-to-b from-emerald-500 to-emerald-700 text-white rounded-full shadow-2xl shadow-emerald-900/50 hover:scale-110 transition-all duration-300 ease-out active:scale-95 ring-1 ring-emerald-400/50"
+        class="relative flex items-center justify-center w-14 h-14 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-400 text-emerald-600 rounded-full shadow-2xl shadow-white/10 hover:scale-110 transition-all duration-300 ease-out active:scale-95 border border-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
         aria-label="Falar com um advogado pelo WhatsApp"
       >
         <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
@@ -414,7 +410,6 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
         <div class="flex flex-col md:flex-row md:justify-between gap-6">
           <div>
             <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogados" class="h-14 w-auto mb-4 opacity-90" width="166" height="56" loading="lazy" />
-            <p class="font-display text-xl font-semibold text-white">Ferreira Advogados</p>
             <p class="mt-1">Dr. Charles Santos Ferreira · OAB/MG 91.989</p>
             <p class="mt-1">Passos - MG</p>
           </div>
