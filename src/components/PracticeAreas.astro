@@ -1,0 +1,119 @@
+---
+// src/components/PracticeAreas.astro
+const whatsappBaseUrl = "https://wa.me/5535997533336?text=";
+
+const practiceAreas = [
+  {
+    title: "Direito Cível",
+    badge: "Patrimônio & Contratos",
+    description: "Atuação consultiva e contenciosa focada na blindagem patrimonial, resolução de litígios contratuais complexos, indenizações, responsabilidade civil e direito sucessório. Estruturamos defesas robustas e negociações seguras para mitigar riscos econômicos e resguardar os interesses civis de famílias e empresários com celeridade e rigor técnico.",
+    topics: ["Contratos e Obrigações", "Direito de Família e Sucessões", "Ações Indenizatórias", "Disputas de Posse e Propriedade"],
+    message: "Olá, Dr. Charles. Gostaria de agendar uma consulta sobre Direito Cível.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />`
+  },
+  {
+    title: "Direito Criminal",
+    badge: "Defesa Intransigente",
+    description: "Defesa combativa da liberdade em inquéritos policiais, prisões em flagrante, audiências de custódia e ações penais perante a Justiça Estadual e Federal. Conduzimos cada caso com discrição absoluta, técnica processual apurada e combatividade para assegurar garantias fundamentais e o devido processo legal do cliente.",
+    topics: ["Audiências de Custódia & Flagrantes", "Habeas Corpus & Recursos Superiores", "Tribunal do Júri", "Defesa em Crimes Patrimoniais"],
+    message: "Olá, Dr. Charles. Preciso de suporte imediato em Direito Criminal.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />`
+  },
+  {
+    title: "Direito Trabalhista",
+    badge: "Equilíbrio & Direitos",
+    description: "Representação estratégica em litígios trabalhistas individuais e coletivos, rescisões indiretas, acidentes de trabalho e passivos contratuais. Aliamos assessoria preventiva e contencioso combativo para equacionar direitos violados e reestruturar contingências jurídicas com foco na máxima eficiência e sustentabilidade patrimonial.",
+    topics: ["Horas Extras e Adicionais Devidos", "Acidentes de Trabalho e Doenças", "Rescisão Indireta do Contrato", "Defesa contra Práticas Abusivas"],
+    message: "Olá, Dr. Charles. Gostaria de agendar uma consulta sobre Direito Trabalhista.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18m-8-8l4-4 4 4m0 0l4-4 4 4M4 11h16" />`
+  },
+  {
+    title: "Direito Previdenciário",
+    badge: "Segurança de Futuro",
+    description: "Planejamento previdenciário minucioso e atuação assertiva na concessão e revisão de benefícios junto ao INSS e vias judiciais. Defendemos aposentadorias especiais, por tempo de contribuição, invalidez e pensões, corrigindo inconsistências do CNIS para garantir a proteção econômica digna de quem dedicou anos ao trabalho.",
+    topics: ["Aposentadorias por Tempo e Especial", "Benefícios por Incapacidade (BPC/LOAS)", "Revisão e Correção do CNIS", "Planejamento de Renda Futura"],
+    message: "Olá, Dr. Charles. Gostaria de avaliar meu caso de Direito Previdenciário.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />`
+  }
+];
+---
+
+<section id="atuacao" class="relative py-24 border-t border-white/10 overflow-hidden">
+  <!-- Luz de fundo ambiente midnight navy sutil -->
+  <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-blue-900/15 blur-[160px] rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Cabeçalho da Seção -->
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99]">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md mb-4">
+        <span class="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-zinc-300">
+          Atuação Estratégica & Especializada
+        </span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+        Disciplinas Jurídicas Fundamentais
+      </h2>
+      <p class="text-slate-200 font-normal text-base sm:text-lg leading-relaxed">
+        Soluções jurídicas estruturadas para o cliente de alto nível em Passos e no Sul de Minas Gerais, unindo rigor analítico e combatividade em cada instância.
+      </p>
+    </div>
+
+    <!-- Grid Responsivo Otimizado para Leitura / Cartões em Vidro Fumê 3D -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+      {practiceAreas.map((area, index) => (
+        <div
+          class="reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99] group relative rounded-xl bg-gradient-to-b from-white/[0.06] via-white/[0.02] to-transparent bg-[#080d1c]/65 backdrop-blur-xl border border-white/10 hover:border-slate-300/40 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.7)] hover:shadow-[0_25px_50px_-10px_rgba(15,23,42,0.9)] hover:-translate-y-1"
+          style={`transition-delay: ${index * 80}ms;`}
+        >
+          <!-- Topo do Card: Ícone e Tag -->
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-lg bg-black/50 border border-white/10 backdrop-blur-md flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:border-slate-300/60 group-hover:bg-slate-900/80 transition-all duration-300 shadow-sm">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={area.icon} />
+              </div>
+              <span class="text-[10px] uppercase tracking-[0.18em] font-medium text-zinc-300 px-2.5 py-1 rounded bg-white/[0.04] border border-white/10">
+                {area.badge}
+              </span>
+            </div>
+
+            <!-- Título da Área -->
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-4 group-hover:text-slate-100 transition-colors">
+              {area.title}
+            </h3>
+
+            <!-- Parágrafo Objetivo com Alta Legibilidade (14.5px, Peso Normal) -->
+            <p class="text-sm sm:text-[14.5px] text-slate-200 font-normal leading-relaxed mb-6">
+              {area.description}
+            </p>
+
+            <!-- Tópicos de Atuação -->
+            <ul class="space-y-2.5 border-t border-white/10 pt-5 mb-6">
+              {area.topics.map((topic) => (
+                <li class="flex items-center text-xs sm:text-[13px] text-zinc-300 font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-400 mr-2.5 group-hover:bg-slate-200 transition-colors flex-shrink-0"></span>
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Rodapé do Card: Link Direto com Pré-Mensagem -->
+          <div class="pt-4 border-t border-white/10">
+            <a
+              href={`${whatsappBaseUrl}${encodeURIComponent(area.message)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-between w-full text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300 group-hover:text-white transition-colors duration-200 active:scale-[0.98]"
+            >
+              <span>Consultar Especialista</span>
+              <svg class="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

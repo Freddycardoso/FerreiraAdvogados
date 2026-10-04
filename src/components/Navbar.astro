@@ -1,0 +1,311 @@
+---
+// src/components/Navbar.astro
+const whatsappUrl = "https://wa.me/5535997533336?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica";
+---
+
+<!-- Fixed Master Header & Full-Viewport Brand Stage Overlay -->
+<div id="master-brand-header" class="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+
+  <!-- Fundo da Navbar Fixa Compacta (Fade in contínuo e suave ao rolar) -->
+  <div
+    id="nav-frosted-bg"
+    class="absolute top-0 left-0 right-0 h-20 bg-[#050811]/92 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.7)] opacity-0 will-change-[opacity] pointer-events-auto"
+  ></div>
+
+  <!-- Iluminação Teatral Superior (Overhead Architectural Spotlight) -->
+  <div
+    id="brand-spotlight"
+    class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] sm:w-[850px] md:w-[1000px] h-[380px] bg-gradient-to-b from-white/35 via-sky-300/15 to-transparent blur-[75px] rounded-full will-change-transform"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Feixe Especular Cônico Sobre a Logo -->
+  <div
+    id="brand-specular-ray"
+    class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[550px] sm:w-[800px] h-[280px] opacity-80 will-change-[opacity]"
+    style="background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(186, 230, 253, 0.12) 38%, transparent 72%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Barra Superior de Navegação (Links, Badge OAB & Botão CTA WhatsApp) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 grid grid-cols-12 items-center relative z-20 pointer-events-none">
+    
+    <!-- Lado Esquerdo: Badge Institucional / OAB -->
+    <div id="nav-location-tag" class="col-span-6 md:col-span-4 flex items-center gap-2 pointer-events-auto select-none">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+      <span class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-zinc-300 font-medium">
+        Passos - MG &bull; OAB/MG 91.989
+      </span>
+    </div>
+
+    <!-- Centro: Espaço reservado para ancoragem exata do logo reduzido -->
+    <div id="nav-logo-slot" class="hidden md:flex md:col-span-4 justify-center pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Lado Direito: Navegação Desktop + CTA WhatsApp + Menu Mobile -->
+    <div class="col-span-6 md:col-span-4 flex items-center justify-end space-x-3 sm:space-x-5 pointer-events-auto">
+      <nav class="hidden md:flex items-center space-x-5 text-xs uppercase tracking-[0.16em] font-medium text-slate-300">
+        <a href="#sobre" class="hover:text-white transition-colors duration-200 py-1 border-b border-transparent hover:border-zinc-400">
+          Sobre
+        </a>
+        <a href="#atuacao" class="hover:text-white transition-colors duration-200 py-1 border-b border-transparent hover:border-zinc-400">
+          Áreas de Atuação
+        </a>
+        <a href="#contato" class="hover:text-white transition-colors duration-200 py-1 border-b border-transparent hover:border-zinc-400">
+          Contato
+        </a>
+      </nav>
+
+      <!-- Botão CTA Prata Metálico com Resposta Tátil Instantânea -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative group inline-flex items-center justify-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs uppercase tracking-[0.14em] font-semibold text-slate-950 bg-gradient-to-r from-zinc-200 via-slate-100 to-zinc-300 hover:from-white hover:to-zinc-100 rounded-sm shadow-[0_0_15px_rgba(255,255,255,0.08)] hover:shadow-[0_0_20px_rgba(255,255,255,0.22)] transition-transform duration-160 ease-out active:scale-[0.97]"
+      >
+        <svg class="w-3.5 h-3.5 text-emerald-600 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Consulta</span>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-sm text-zinc-400 hover:text-white hover:bg-white/5 border border-white/10"
+        aria-label="Abrir Menu"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu Dropdown Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#050811]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3 pointer-events-auto relative z-30">
+    <a href="#sobre" class="block text-xs uppercase tracking-[0.2em] font-medium text-slate-300 hover:text-white py-2">
+      Sobre
+    </a>
+    <a href="#atuacao" class="block text-xs uppercase tracking-[0.2em] font-medium text-slate-300 hover:text-white py-2">
+      Áreas de Atuação
+    </a>
+    <a href="#contato" class="block text-xs uppercase tracking-[0.2em] font-medium text-slate-300 hover:text-white py-2">
+      Contato
+    </a>
+    <div class="pt-2">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs uppercase tracking-[0.14em] font-semibold text-slate-950 bg-gradient-to-r from-zinc-200 via-slate-100 to-zinc-300 rounded-sm"
+      >
+        <span>Falar com Dr. Charles</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- PALCO HERO DA MARCA: LOGO 3D EM GRANDE ESCALA + FRASE DE ALTA CONVERSÃO -->
+  <!-- Ocupa 100vh na entrada; com o scroll o logo reduz suavemente até o topo e a frase some -->
+  <div
+    id="hero-brand-stage"
+    class="absolute inset-x-0 top-0 h-screen flex flex-col items-center justify-center pointer-events-none z-10 px-4 sm:px-6"
+  >
+    <!-- Logo 3D em Relevo Metálico Prateado (Escala Imponente) -->
+    <a
+      id="brand-logo-anchor"
+      href="#"
+      class="pointer-events-auto inline-block focus:outline-none will-change-transform"
+      aria-label="Ferreira Advogados - Voltar ao início"
+    >
+      <img
+        id="brand-logo-img"
+        src="/images/logo-ferreira-transparent.png"
+        alt="Ferreira Advogados - Dr. Charles Santos Ferreira (OAB/MG 91.989)"
+        class="w-[88vw] max-w-[520px] sm:max-w-[640px] md:max-w-[740px] lg:max-w-[800px] h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] select-none cursor-pointer will-change-transform origin-center"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </a>
+
+    <!-- Frase para Máxima Conversão de Leads (Dedicada ao Hero Inicial; Desvanece no Scroll) -->
+    <div
+      id="brand-conversion-block"
+      class="text-center max-w-2xl sm:max-w-3xl px-4 mt-6 sm:mt-8 will-change-transform"
+    >
+      <p class="font-serif text-base sm:text-xl md:text-2xl font-bold text-white tracking-wide leading-tight">
+        Defesa Jurídica Estratégica, Imediata e Intransigente.
+      </p>
+      <p class="text-xs sm:text-sm md:text-base text-slate-300 font-normal mt-2 sm:mt-3 leading-relaxed max-w-2xl mx-auto">
+        Blindagem patrimonial, combate contencioso e resguardo de direitos sob a liderança direta do Dr. Charles Santos Ferreira (OAB/MG 91.989).
+      </p>
+      
+      <!-- Gatilho de Atendimento Urgente via WhatsApp -->
+      <div class="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-500/40 text-emerald-400 hover:text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(16,185,129,0.25)] transition-all duration-200 active:scale-95"
+        >
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Plantão Imediato no WhatsApp &bull; (35) 99753-3336</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Indicador Visual Sutil de Rolagem (Desaparece no primeiro toque de scroll) -->
+    <div
+      id="scroll-indicator"
+      class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-400 select-none will-change-transform"
+    >
+      <span class="text-[10px] uppercase tracking-[0.25em] font-medium text-zinc-400">
+        Role para explorar
+      </span>
+      <svg class="w-4 h-4 text-zinc-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+      </svg>
+    </div>
+
+  </div>
+
+</div>
+
+<script is:inline>
+  // Transição 100% Suave e Otimizada a 60/120 FPS via Compositor da GPU (Sem reflow)
+  const logoAnchor = document.getElementById('brand-logo-anchor');
+  const conversionBlock = document.getElementById('brand-conversion-block');
+  const scrollIndicator = document.getElementById('scroll-indicator');
+  const spotlight = document.getElementById('brand-spotlight');
+  const specularRay = document.getElementById('brand-specular-ray');
+  const navFrostedBg = document.getElementById('nav-frosted-bg');
+
+  let targetScale = 0.26;
+  let deltaY = 280;
+  let scrollDistance = 550;
+  let ticking = false;
+
+  function calculateMetrics() {
+    if (!logoAnchor) return;
+    const vh = window.innerHeight;
+    const vw = window.innerWidth;
+
+    // Distância de rolagem ideal para transição cinematográfica
+    scrollDistance = Math.min(vh * 0.75, 550);
+
+    // Medição exata da posição inicial centralizada
+    const isMobile = vw < 640;
+    const targetWidth = isMobile ? 125 : 155;
+    const targetCenterY = isMobile ? 36 : 40; // Meio da barra superior (h-20 = 40px)
+
+    // Reset momentâneo de transform para medir geometria pura
+    const prevTransform = logoAnchor.style.transform;
+    logoAnchor.style.transform = 'none';
+    const rect = logoAnchor.getBoundingClientRect();
+    logoAnchor.style.transform = prevTransform;
+
+    const initialCenterY = rect.top + rect.height / 2;
+    deltaY = initialCenterY - targetCenterY;
+
+    if (rect.width > 0) {
+      targetScale = targetWidth / rect.width;
+    }
+  }
+
+  function applyScrollTransform() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const progress = Math.min(1, Math.max(0, scrollY / scrollDistance));
+
+    // Interpolação GPU da Logo (escala e deslocamento vertical contínuos)
+    if (logoAnchor) {
+      const currentScale = 1 - progress * (1 - targetScale);
+      const currentY = -progress * deltaY;
+      logoAnchor.style.transform = `translate3d(0, ${currentY}px, 0) scale(${currentScale})`;
+    }
+
+    // Frase de Conversão: some suavemente no início da rolagem (0 até 0.40)
+    if (conversionBlock) {
+      const phraseOpacity = Math.max(0, 1 - progress * 2.2);
+      conversionBlock.style.opacity = phraseOpacity.toString();
+      conversionBlock.style.transform = `translate3d(0, ${-progress * 40}px, 0)`;
+      conversionBlock.style.pointerEvents = phraseOpacity > 0.05 ? 'auto' : 'none';
+    }
+
+    // Indicador de rolagem: desaparece no primeiro toque de scroll
+    if (scrollIndicator) {
+      const indOpacity = Math.max(0, 1 - progress * 3.5);
+      scrollIndicator.style.opacity = indOpacity.toString();
+    }
+
+    // Iluminação cenográfica: suaviza proporcionalmente
+    if (spotlight) {
+      const spotOpacity = Math.max(0.18, 1 - progress * 0.72);
+      spotlight.style.opacity = spotOpacity.toString();
+      spotlight.style.transform = `translate(-50%, ${-progress * 35}px) scale(${1 - progress * 0.3})`;
+    }
+
+    if (specularRay) {
+      const specOpacity = Math.max(0.12, 0.8 - progress * 0.65);
+      specularRay.style.opacity = specOpacity.toString();
+    }
+
+    // Fundo da Navbar compacta com vidro fosco (surge entre 0.40 e 1.0)
+    if (navFrostedBg) {
+      const navOpacity = Math.min(1, Math.max(0, (progress - 0.35) / 0.65));
+      navFrostedBg.style.opacity = navOpacity.toString();
+    }
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(applyScrollTransform);
+      ticking = true;
+    }
+  }
+
+  // Event Listeners
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    calculateMetrics();
+    applyScrollTransform();
+  }, { passive: true });
+
+  // Inicialização após renderização do DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      calculateMetrics();
+      applyScrollTransform();
+    });
+  } else {
+    calculateMetrics();
+    applyScrollTransform();
+  }
+
+  // Recalibra ao carregar a imagem
+  const img = document.getElementById('brand-logo-img');
+  if (img) {
+    if (img.complete) {
+      calculateMetrics();
+      applyScrollTransform();
+    } else {
+      img.addEventListener('load', () => {
+        calculateMetrics();
+        applyScrollTransform();
+      });
+    }
+  }
+
+  // Menu Mobile
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => menu.classList.add('hidden'));
+    });
+  }
+</script>

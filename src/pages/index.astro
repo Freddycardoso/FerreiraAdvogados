@@ -1,0 +1,35 @@
+---
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import PracticeAreas from "../components/PracticeAreas.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "Ferreira Advogados | Dr. Charles Santos Ferreira (OAB/MG 91.989) - Passos - MG";
+const pageDescription = "Escritório de advocacia em Passos - MG e região sul-mineira, sob a liderança do Dr. Charles Santos Ferreira. Atuação estratégica e de alto padrão em Direito Cível, Criminal, Trabalhista e Previdenciário.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Barra Superior Institucional com Glassmorphism -->
+  <Navbar />
+
+  <!-- Conteúdo Principal Semântico -->
+  <main class="flex-grow">
+    <!-- Pista de Rolagem (Scroll Runway) para a Transição Suave da Logo em Tela Cheia (100vh) -->
+    <div id="intro-scroll-track" class="h-screen w-full pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Primeira Dobra: Hero com Grid Assimétrico e Prova de Autoridade -->
+    <Hero />
+
+    <!-- Quatro Especialidades: Cível, Criminal, Trabalhista e Previdenciário -->
+    <PracticeAreas />
+
+    <!-- Liderança e Posicionamento Institucional: Dr. Charles Santos Ferreira -->
+    <About />
+  </main>
+
+  <!-- Rodapé Institucional com Conformidade OAB e Botão Flutuante de WhatsApp -->
+  <Footer />
+</Layout>
