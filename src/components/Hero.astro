@@ -1,133 +1,84 @@
 ---
 // src/components/Hero.astro
-const whatsappUrl = "https://wa.me/5535997533336?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica";
+const wa = (msg: string) => `https://wa.me/5535997533336?text=${encodeURIComponent(msg)}`;
+
+const situations = [
+  {
+    label: "Fui preso, ou um familiar foi preso",
+    msg: "Olá, Dr. Charles. Preciso de ajuda urgente: houve uma prisão ou investigação criminal.",
+  },
+  {
+    label: "Fui demitido sem receber o que é meu",
+    msg: "Olá, Dr. Charles. Fui demitido e acredito que não recebi meus direitos trabalhistas.",
+  },
+  {
+    label: "O INSS negou ou cortou meu benefício",
+    msg: "Olá, Dr. Charles. O INSS negou ou cortou meu benefício e preciso de orientação.",
+  },
+  {
+    label: "Estou sendo processado ou preciso cobrar alguém",
+    msg: "Olá, Dr. Charles. Tenho um problema cível (processo, contrato, cobrança ou indenização).",
+  },
+];
 ---
 
-<section id="apresentacao" class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center pt-24 sm:pt-28 pb-16 lg:py-28 overflow-hidden">
-  <!-- Efeitos Sutis de Luz de Fundo (Backlight / Glow Metálico & Midnight Navy) -->
-  <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[420px] bg-blue-900/18 blur-[140px] rounded-full"></div>
-  <div class="pointer-events-none absolute bottom-0 right-10 w-[550px] h-[350px] bg-sky-950/20 blur-[130px] rounded-full"></div>
+<section id="inicio" class="bg-ink">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16 sm:py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-    <!-- Grid Assimétrico Desktop (7 cols / 5 cols) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-      
-      <!-- Coluna da Esquerda: Autoridade, Headline e Conversão -->
-      <div class="lg:col-span-7 flex flex-col justify-center reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99]">
-        
-        <!-- Badge Sutil de Localização / Exclusividade -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md self-start mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-300">
-            Passos - MG e Região Sul-Mineira
-          </span>
-        </div>
+    <div class="lg:col-span-7">
+      <h1 class="font-serif text-[2.15rem] sm:text-5xl lg:text-[3.6rem] font-semibold text-white leading-[1.08] tracking-tight">
+        Advogado em Passos, MG, para quando sua liberdade, seu emprego ou seu sustento estão em risco.
+      </h1>
 
-        <!-- H1 Editorial e Imponente (Sóbrio, sem gradientes artificiais) -->
-        <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold tracking-tight text-white leading-[1.14] mb-6">
-          Representação Jurídica <span class="text-slate-100 font-semibold underline decoration-zinc-600/70 decoration-1 underline-offset-8">Estratégica</span> e Intransigente.
-        </h1>
+      <p class="mt-7 max-w-xl text-lg text-prata leading-relaxed">
+        Prazos judiciais não esperam. Cada dia sem advogado pode custar uma defesa, um direito ou um benefício. Conte seu caso agora e saiba, com clareza, o que pode ser feito.
+      </p>
 
-        <!-- Parágrafo de Posicionamento com Dr. Charles Santos Ferreira (Alta Legibilidade) -->
-        <p class="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl mb-8">
-          Sob o comando direto do <strong class="text-white font-medium">Dr. Charles Santos Ferreira (OAB/MG 91.989)</strong>, atuamos com rigor técnico e combatividade para blindar patrimônios, resguardar a liberdade e assegurar direitos essenciais nas áreas <span class="text-slate-100 font-medium">Cível, Criminal, Trabalhista e Previdenciária</span>.
-        </p>
-
-        <!-- Ações e Conversão Primária (SXO) -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
-          <!-- Botão CTA Principal de Alto Contraste com Resposta Tátil Instantânea -->
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center justify-center gap-3 px-8 py-4 text-xs sm:text-sm uppercase tracking-[0.16em] font-bold text-slate-950 bg-gradient-to-r from-zinc-100 via-white to-zinc-200 hover:from-white hover:to-zinc-100 rounded-sm shadow-[0_4px_25px_rgba(255,255,255,0.18)] hover:shadow-[0_4px_35px_rgba(255,255,255,0.3)] transition-transform duration-160 ease-out active:scale-[0.97]"
-          >
-            <!-- Ícone WhatsApp -->
-            <svg class="w-4 h-4 text-emerald-600 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-            </svg>
-            <span>Agendar Consulta Jurídica</span>
-          </a>
-
-          <!-- Link Secundário Sutil -->
-          <a
-            href="#atuacao"
-            class="inline-flex items-center justify-center gap-2 px-6 py-4 text-xs sm:text-sm uppercase tracking-[0.16em] font-medium text-zinc-300 hover:text-white border border-white/10 hover:border-zinc-400 bg-white/[0.02] hover:bg-white/[0.05] rounded-sm transition-all duration-200"
-          >
-            <span>Conhecer Especialidades</span>
-            <svg class="w-4 h-4 text-zinc-400 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- Prova de Autoridade: Métricas em Linhas Finas Prateadas -->
-        <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 sm:gap-8">
-          <div>
-            <p class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">OAB/MG</p>
-            <p class="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-zinc-400 mt-1 font-medium">91.989 Regular</p>
-          </div>
-          <div class="border-l border-white/10 pl-4 sm:pl-6">
-            <p class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">4 Áreas</p>
-            <p class="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-zinc-400 mt-1 font-medium">Consultivo & Contencioso</p>
-          </div>
-          <div class="border-l border-white/10 pl-4 sm:pl-6">
-            <p class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">100%</p>
-            <p class="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-zinc-400 mt-1 font-medium">Sigilo & Rigor</p>
-          </div>
-        </div>
-
+      <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
+        <a
+          href={wa("Olá, Dr. Charles. Vim pelo site e preciso de orientação jurídica urgente.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-vinho hover:bg-vinhoescuro text-white text-base font-semibold transition-colors active:translate-y-px"
+        >
+          Contar meu caso no WhatsApp
+        </a>
+        <a href="tel:+5535997533336" class="text-white font-semibold text-lg tabular-nums underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">
+          ou ligue (35) 99753-3336
+        </a>
       </div>
 
-      <!-- Coluna da Direita: Card com Moldura de Alto Padrão e Retrato Executivo -->
-      <div class="lg:col-span-5 relative reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99]">
-        
-        <!-- Moldura Externa com Borda Prata e Reflexo 3D Smoked Glass -->
-        <div class="relative p-2.5 rounded-2xl bg-gradient-to-b from-white/15 via-white/5 to-white/0 shadow-[0_25px_65px_-15px_rgba(0,0,0,0.95)] backdrop-blur-xl border border-white/10">
-          
-          <div class="relative rounded-xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#070b16]">
-            <!-- Imagem Executiva Placeholder de Alta Resolução (Pronta para substituição pelo retrato do Dr. Charles) -->
-            <img
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85"
-              alt="Dr. Charles Santos Ferreira - Advogado Titular da Ferreira Advogados"
-              class="w-full h-full object-cover object-center grayscale contrast-110 brightness-95 hover:scale-105 transition-transform duration-700 ease-out"
-              loading="eager"
-              fetchpriority="high"
-              width="600"
-              height="750"
-            />
+      <p class="mt-6 text-sm text-prata/80">
+        Primeira conversa sem compromisso. Sigilo profissional garantido por lei.
+      </p>
 
-            <!-- Gradiente de Vinheta para Integração Perfeita com o Fundo Escuro -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050811] via-black/35 to-transparent opacity-90"></div>
-
-            <!-- Card Flutuante de Identificação do Advogado com Efeito Vidro Fumê -->
-            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#070b16]/85 backdrop-blur-xl border border-white/15 shadow-2xl">
-              <div class="flex items-center justify-between">
-                <div>
-                  <p class="font-serif text-sm sm:text-base font-bold text-white tracking-wide">
-                    Dr. Charles Santos Ferreira
-                  </p>
-                  <p class="text-[10px] sm:text-[11px] text-zinc-400 tracking-[0.2em] uppercase font-medium mt-0.5">
-                    OAB/MG 91.989 &bull; Advogado Titular
-                  </p>
-                </div>
-                
-                <!-- Selo de Balança da Justiça Sóbrio -->
-                <div class="h-9 w-9 rounded-full border border-white/15 flex items-center justify-center bg-white/5 text-zinc-300 flex-shrink-0">
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18m-8-8l4-4 4 4m0 0l4-4 4 4M4 11h16" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Elemento Decorativo Geométrico Prata na Base -->
-        <div class="absolute -bottom-6 -right-6 w-24 h-24 border-r border-b border-zinc-700/40 rounded-br-2xl pointer-events-none hidden sm:block"></div>
-      </div>
-
+      <p class="mt-14 pt-6 border-t border-white/15 text-sm text-prata/80 max-w-xl">
+        Dr. Charles Santos Ferreira, OAB/MG 91.989. Atendimento em Passos e região sul-mineira.
+      </p>
     </div>
+
+    <div class="lg:col-span-5 lg:border-l lg:border-white/15 lg:pl-12">
+      <h2 class="font-serif text-2xl text-white font-semibold">Qual é a sua situação?</h2>
+      <p class="mt-2 text-prata text-[15px]">Toque na que mais se parece com a sua. A conversa já abre com o assunto certo.</p>
+
+      <ul class="mt-6 border-t border-white/15">
+        {situations.map((s) => (
+          <li class="border-b border-white/15">
+            <a
+              href={wa(s.msg)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between gap-4 py-5 text-white hover:text-prata transition-colors"
+            >
+              <span class="font-serif text-xl leading-snug">{s.label}</span>
+              <svg class="w-5 h-5 shrink-0 text-prata group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
   </div>
 </section>

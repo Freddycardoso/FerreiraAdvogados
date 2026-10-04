@@ -1,131 +1,84 @@
 ---
 // src/components/About.astro
-const whatsappUrl = "https://wa.me/5535997533336?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica";
+// Seção "Como funciona" (sequência real: numeração justificada) + apresentação do advogado
+const wa = "https://wa.me/5535997533336?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Quero%20conversar%20sobre%20o%20meu%20caso.";
 
-const pillars = [
-  {
-    title: "Sigilo Profissional Absoluto",
-    description: "Tratamento confidencial e blindagem rigorosa de todas as informações patrimoniais, empresariais e pessoais confiadas ao escritório.",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />`
-  },
-  {
-    title: "Rigor Técnico & Processual",
-    description: "Construção de teses fundamentadas nas mais recentes súmulas e jurisprudências dos Tribunais Superiores (STJ e STF).",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />`
-  },
-  {
-    title: "Proximidade no Atendimento",
-    description: "Comunicação direta, transparente e desprovida de termos herméticos. O cliente tem ciência em tempo real de cada passo processual.",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.999-3.199a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />`
-  },
-  {
-    title: "Enraizamento Regional Sólido",
-    description: "Atuação destacada na comarca de Passos e polos do Sul de Minas, compreendendo as particularidades econômicas e judiciárias da região.",
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />`
-  }
+const steps = [
+  { title: "Você conta o caso", text: "Por WhatsApp ou telefone, sem formulário e sem burocracia. Basta dizer o que aconteceu e enviar os documentos que tiver." },
+  { title: "O advogado analisa", text: "O Dr. Charles avalia seu caso pessoalmente, aponta os riscos, os prazos e os caminhos possíveis, sem promessa de resultado." },
+  { title: "Você decide com clareza", text: "Explicamos honorários e próximos passos antes de qualquer contratação. Só avança quem entendeu e concordou." },
 ];
 ---
 
-<section id="sobre" class="relative py-24 border-t border-white/10 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      
-      <!-- Coluna da Esquerda: Liderança, Narrativa Institucional e Pilares -->
-      <div class="lg:col-span-7 flex flex-col justify-center reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99]">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md self-start mb-6">
-          <span class="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-zinc-300">
-            Autoridade & Tradição Jurídica
-          </span>
-        </div>
+<section id="como-funciona" class="bg-ink2 border-y border-white/15">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+    <div class="lg:col-span-4">
+      <h2 class="font-serif text-4xl font-semibold text-white leading-[1.1] tracking-tight">
+        Como funciona o primeiro contato
+      </h2>
+      <p class="mt-5 text-prata leading-relaxed">
+        Sem linguagem jurídica difícil. Você entende seu caso antes de decidir qualquer coisa.
+      </p>
+    </div>
 
-        <!-- H2 Editorial -->
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
-          Liderança Pessoal, Atendimento Próximo e Rigor Inabalável.
-        </h2>
+    <ol class="lg:col-span-8 border-t border-white/15">
+      {steps.map((s, i) => (
+        <li class="grid grid-cols-[3rem_1fr] sm:grid-cols-[4rem_1fr] gap-4 py-8 border-b border-white/15">
+          <span class="font-serif text-3xl text-prata tabular-nums">{i + 1}</span>
+          <div>
+            <h3 class="font-serif text-2xl text-white font-semibold">{s.title}</h3>
+            <p class="mt-2 text-prata leading-relaxed max-w-[58ch]">{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
 
-        <!-- Narrativa Institucional -->
-        <div class="space-y-4 text-slate-200 font-normal text-base sm:text-lg leading-relaxed mb-8">
-          <p>
-            Sob a titularidade direta do <strong class="text-white font-medium">Dr. Charles Santos Ferreira (OAB/MG 91.989)</strong>, a Ferreira Advogados consolidou-se como um escritório de representação seletiva em Passos e nas principais comarcas do Sul de Minas Gerais.
-          </p>
-          <p>
-            Ao contrário da advocacia de massa, nossa prática repousa no atendimento individualizado. Cada demanda é tratada como um caso ímpar, submetida a um diagnóstico preliminar aprofundado para traçar estratégias preventivas ou defesas combativas no contencioso civil, criminal, trabalhista e previdenciário.
-          </p>
-        </div>
+<section id="advogado" class="on-light bg-stone text-ink">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+    <div class="lg:col-span-5">
+      <h2 class="font-serif text-4xl sm:text-5xl font-semibold leading-[1.1] tracking-tight">
+        Quem cuida do seu caso é o próprio advogado.
+      </h2>
+    </div>
 
-        <!-- Grid 2x2 com Pilares Institucionais em Vidro Fumê 3D -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-          {pillars.map((pillar) => (
-            <div class="p-6 rounded-lg bg-gradient-to-b from-white/[0.05] to-transparent bg-[#080d1c]/60 backdrop-blur-md border border-white/10 hover:border-slate-300/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)] hover:shadow-xl transition-colors duration-200">
-              <div class="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 mb-3 shadow-inner">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={pillar.icon} />
-              </div>
-              <h4 class="font-serif text-base font-bold text-white mb-2">{pillar.title}</h4>
-              <p class="text-xs sm:text-[13px] text-slate-300 font-normal leading-relaxed">{pillar.description}</p>
-            </div>
-          ))}
-        </div>
+    <div class="lg:col-span-7">
+      <div class="space-y-5 text-[17px] leading-[1.75] text-[#2B303B] max-w-[62ch]">
+        <p>
+          A Ferreira Advogados é conduzida por <strong class="font-semibold text-ink">Dr. Charles Santos Ferreira, OAB/MG 91.989</strong>, com atuação em Passos e nas comarcas do Sul de Minas Gerais.
+        </p>
+        <p>
+          Aqui não existe fila de atendimento nem caso entregue a quem você nunca viu. Você fala com quem vai assinar sua defesa, recebe notícias do andamento em linguagem simples e sabe sempre em que pé está seu processo.
+        </p>
+        <p>
+          Tudo o que você contar fica protegido pelo sigilo profissional.
+        </p>
+      </div>
 
-        <!-- Botão Secundário para WhatsApp -->
+      <dl class="mt-10 grid sm:grid-cols-3 gap-6 border-t-2 border-ink pt-6 text-[15px]">
         <div>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-3 px-7 py-3.5 text-xs sm:text-sm uppercase tracking-[0.16em] font-semibold text-slate-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 hover:border-zinc-300 rounded-sm transition-transform duration-160 ease-out active:scale-[0.97] shadow-sm"
-          >
-            <span>Falar Diretamente com Dr. Charles</span>
-            <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          <dt class="font-semibold text-vinho">Registro</dt>
+          <dd class="mt-1 text-[#2B303B]">OAB/MG 91.989</dd>
         </div>
-      </div>
-
-      <!-- Coluna da Direita: Card de Compromisso Institucional & Credenciais em Vidro Fumê 3D -->
-      <div class="lg:col-span-5 reveal-on-scroll opacity-0 translate-y-3.5 scale-[0.99]">
-        <div class="sticky top-28 p-8 sm:p-10 rounded-2xl bg-gradient-to-b from-white/[0.08] via-white/[0.02] to-transparent bg-[#080d1c]/80 backdrop-blur-2xl border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] relative overflow-hidden">
-          
-          <!-- Elemento Decorativo Metálico Superior -->
-          <div class="w-12 h-1 bg-gradient-to-r from-zinc-300 via-slate-100 to-zinc-500 rounded-full mb-8"></div>
-
-          <!-- Ícone de Aspas Clássico -->
-          <svg class="w-10 h-10 text-white/10 mb-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
-
-          <!-- Declaração Institucional -->
-          <blockquote class="font-serif text-lg sm:text-xl font-normal text-slate-200 leading-relaxed italic mb-8">
-            "A advocacia de excelência não admite condescendência técnica. Nosso dever moral e profissional é esgotar todos os instrumentos do ordenamento jurídico para resguardar a dignidade, a honra e o patrimônio dos nossos constituintes."
-          </blockquote>
-
-          <!-- Assinatura e Dados OAB -->
-          <div class="pt-6 border-t border-white/10 flex items-center justify-between">
-            <div>
-              <p class="font-serif text-lg font-bold text-white tracking-wide">Dr. Charles Santos Ferreira</p>
-              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-medium mt-0.5">OAB/MG 91.989 &bull; Sócio Fundador</p>
-            </div>
-            
-            <div class="w-12 h-12 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-zinc-300 flex-shrink-0">
-              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-              </svg>
-            </div>
-          </div>
-
-          <!-- Credenciais Locais -->
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-400 uppercase tracking-wider font-medium">
-            <span>Passos &bull; Minas Gerais</span>
-            <span class="text-emerald-400 flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              Atendimento Regional
-            </span>
-          </div>
-
+        <div>
+          <dt class="font-semibold text-vinho">Sede</dt>
+          <dd class="mt-1 text-[#2B303B]">Passos, Minas Gerais</dd>
         </div>
-      </div>
+        <div>
+          <dt class="font-semibold text-vinho">Atuação</dt>
+          <dd class="mt-1 text-[#2B303B]">TJMG, TRF6, TRT3, STJ e STF</dd>
+        </div>
+      </dl>
 
+      <a
+        href={wa}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-10 inline-flex items-center justify-center px-7 py-4 bg-vinho hover:bg-vinhoescuro text-white font-semibold transition-colors active:translate-y-px"
+      >
+        Conversar com o Dr. Charles
+      </a>
     </div>
   </div>
 </section>
