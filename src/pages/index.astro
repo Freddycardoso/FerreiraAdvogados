@@ -4,7 +4,7 @@ const whatsappNumber = "5535997533336";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica.`;
 const wa = (msg: string) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-const title = "Advogado em Passos - MG | Criminal, Trabalhista e Previdenciário | Ferreira Advogado";
+const title = "Ferreira-Advogado | Advogado em Passos - MG | Criminal, Trabalhista e Previdenciário";
 const description = "Precisando de advogado em Passos - MG? Defesa técnica em Direito Criminal, Trabalhista, Cível e Previdenciário. Atendimento rápido, preço justo e sigilo absoluto. Dr. Charles Santos Ferreira (OAB/MG 91.989).";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://ferreiraadvogadopassos.com.br");
 
@@ -112,7 +112,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/logo-ferreira-transparent.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#020617" />
 
@@ -125,7 +125,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Ferreira Advogado" />
+    <meta property="og:site_name" content="Ferreira-Advogado" />
     <meta property="og:image" content={new URL("/images/logo-ferreira.png", Astro.site || "https://ferreiraadvogadopassos.com.br")} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
