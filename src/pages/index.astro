@@ -4,19 +4,73 @@ const whatsappNumber = "5535997533336";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Ol%C3%A1%2C%20Dr.%20Charles.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica.`;
 const wa = (msg: string) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-const title = "Advogado em Passos - MG | Criminal, Trabalhista, Cível e Previdenciário | Ferreira Advogados";
-const description = "Defesa técnica em Passos - MG e região: Direito Criminal, Trabalhista, Cível e Previdenciário. Dr. Charles Santos Ferreira (OAB/MG 91.989). Atendimento personalizado e sigiloso.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://ferreiraadvogados.com.br");
+const title = "Advogado em Passos - MG | Criminal, Trabalhista e Previdenciário | Ferreira Advogado";
+const description = "Precisando de advogado em Passos - MG? Defesa técnica em Direito Criminal, Trabalhista, Cível e Previdenciário. Atendimento rápido, preço justo e sigilo absoluto. Dr. Charles Santos Ferreira (OAB/MG 91.989).";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://ferreiraadvogadopassos.com.br");
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "LegalService",
-  "name": "Ferreira Advogados",
-  "telephone": "+55-35-99753-3336",
-  "address": { "@type": "PostalAddress", "addressLocality": "Passos", "addressRegion": "MG", "addressCountry": "BR" },
-  "founder": { "@type": "Person", "name": "Dr. Charles Santos Ferreira", "jobTitle": "Advogado", "identifier": "OAB/MG 91.989" },
-  "areaServed": { "@type": "AdministrativeArea", "name": "Passos e Região Sul de Minas Gerais" },
-  "knowsAbout": ["Direito Criminal", "Direito Trabalhista", "Direito Cível", "Direito Previdenciário"]
+  "@graph": [
+    {
+      "@type": "LegalService",
+      "@id": "https://ferreiraadvogadopassos.com.br/#organization",
+      "name": "Ferreira Advogado",
+      "url": "https://ferreiraadvogadopassos.com.br",
+      "telephone": "+55-35-99753-3336",
+      "priceRange": "$$",
+      "address": { "@type": "PostalAddress", "streetAddress": "Rua Gonçalves Dias, 892", "addressLocality": "Passos", "addressRegion": "MG", "addressCountry": "BR" },
+      "geo": { "@type": "GeoCoordinates", "latitude": "-20.7183", "longitude": "-46.6096" },
+      "founder": { "@type": "Person", "name": "Dr. Charles Santos Ferreira", "jobTitle": "Advogado", "identifier": "OAB/MG 91.989" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Passos e Região Sul de Minas Gerais" },
+      "knowsAbout": ["Advogado Criminalista", "Advogado Trabalhista", "Advogado Cível", "Advogado Previdenciário", "INSS", "Divórcio"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ferreiraadvogadopassos.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como funciona a primeira consulta?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A primeira consulta é uma análise técnica do seu caso. Nela, o Dr. Charles avalia os fatos, documentos disponíveis e traça o cenário real dos riscos e possibilidades jurídicas antes de propor qualquer intervenção." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem apenas em Passos - MG?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nossa sede física está localizada em Passos, mas atuamos ativamente em todo o Sul de Minas Gerais, prestando atendimento presencial e também por videoconferência, com total garantia de sigilo profissional." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o Plantão Criminal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O Plantão Criminal é um serviço de pronta-resposta para emergências legais (prisões em flagrante, cumprimento de mandados). O escritório atua imediatamente para assegurar que nenhum direito seja violado pelas autoridades." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais documentos preciso ter em mãos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Para uma análise inicial mais precisa, é fundamental reunir documentos de identificação e tudo o que estiver relacionado ao caso, como contratos, boletins de ocorrência, carteira de trabalho ou notificações judiciais." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como são definidos os honorários?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Trabalhamos com transparência total. Os honorários são definidos durante a consulta com base na complexidade do caso e seguem as diretrizes da OAB/MG, sempre buscando propor condições justas e previsibilidade para você." }
+        },
+        {
+          "@type": "Question",
+          "name": "O escritório atua em casos de divórcio e família?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Direito de Família (que inclui divórcios, pensão alimentícia, guarda e inventários) é uma de nossas especialidades dentro do Direito Cível, tratado com a discrição e sensibilidade que esses momentos exigem." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ferreiraadvogadopassos.com.br/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://ferreiraadvogadopassos.com.br/#inicio" },
+        { "@type": "ListItem", "position": 2, "name": "Áreas de Atuação", "item": "https://ferreiraadvogadopassos.com.br/#areas" },
+        { "@type": "ListItem", "position": 3, "name": "O Especialista", "item": "https://ferreiraadvogadopassos.com.br/#especialista" },
+        { "@type": "ListItem", "position": 4, "name": "Contato", "item": "https://ferreiraadvogadopassos.com.br/#contato" }
+      ]
+    }
+  ]
 };
 
 const areas = [
@@ -71,6 +125,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Ferreira Advogado" />
+    <meta property="og:image" content={new URL("/images/logo-ferreira.png", Astro.site || "https://ferreiraadvogadopassos.com.br")} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,8 +188,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
     <!-- 1. HEADER FIXO -->
     <header class="fixed top-0 inset-x-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/10">
       <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-6">
-        <a href="#inicio" aria-label="Ferreira Advogados - início" class="shrink-0">
-          <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogados" class="h-16 w-auto" width="190" height="64" />
+        <a href="#inicio" aria-label="Ferreira Advogado - Início" class="shrink-0">
+          <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogado em Passos MG - Logo" class="h-16 w-auto" width="190" height="64" />
         </a>
 
         <nav aria-label="Principal" class="hidden md:flex items-center gap-9 text-sm font-medium text-slate-300">
@@ -166,7 +222,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
               <span class="text-[13px] font-medium text-slate-300 tracking-wide">Plantão Criminal Ativo em Passos - MG</span>
             </div>
             <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.7rem] font-semibold text-white leading-[1.08] tracking-tight">
-              A Barreira Legal Entre Seu Patrimônio, Sua Liberdade e o Estado.
+              Advogado em Passos - MG:<br/>A Barreira Legal Entre Seu Patrimônio, Sua Liberdade e o Estado.
             </h1>
             <p class="mt-7 max-w-xl text-lg text-slate-300 leading-relaxed">
               Com sede em Passos e atuação em todo o Sul de Minas, a Ferreira Advogados oferece defesa combativa e estratégica contra arbitrariedades, abusos trabalhistas e riscos patrimoniais.
@@ -191,7 +247,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
               <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-900 aspect-[4/5] shadow-2xl shadow-black/50">
                 <img
                   src="/images/dr-charles-portrait.jpg"
-                  alt="Dr. Charles Santos Ferreira - Advogado em Passos MG"
+                  alt="Dr. Charles Santos Ferreira - Especialista Criminal e Trabalhista em Passos MG"
                   class="w-full h-full object-cover grayscale-[0.2] contrast-[1.05]"
                   width="800"
                   height="1000"
@@ -295,13 +351,16 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
           <div class="lg:col-span-7 reveal" style="--reveal-delay: 120ms;">
             <div class="space-y-6 text-[17px] text-slate-300 leading-[1.8] max-w-[62ch] lg:pl-10">
               <p>
-                A Ferreira Advogados é conduzida pelo <strong class="font-semibold text-white">Dr. Charles Santos Ferreira (OAB/MG 91.989)</strong>, com atuação focada em Passos e em todo o Sul de Minas Gerais.
+                A <strong>Ferreira Advogado</strong> é um escritório de advocacia localizado em Passos, MG (Rua Gonçalves Dias, 892), fundado pelo especialista <strong class="font-semibold text-white">Dr. Charles Santos Ferreira (OAB/MG 91.989)</strong>. O escritório presta consultoria e defesa técnica nas áreas de Direito Criminal, Trabalhista, Cível e Previdenciário para toda a região do Sul de Minas.
               </p>
+              <h3 class="text-white font-semibold mt-8 mb-3 text-xl">3 Etapas do Nosso Atendimento Jurídico:</h3>
+              <ol class="list-decimal list-inside space-y-3 text-slate-300 mb-8 ml-2">
+                <li><strong class="text-white">Contato Rápido:</strong> Acione via WhatsApp para agendamento ou plantão.</li>
+                <li><strong class="text-white">Análise Técnica:</strong> Avaliação detalhada de fatos e documentos do caso.</li>
+                <li><strong class="text-white">Estratégia Legal:</strong> Definição imediata da melhor rota de defesa e atuação.</li>
+              </ol>
               <p>
-                Aqui não há advocacia de massa. Cada caso recebe atendimento personalizado: você fala diretamente com o advogado responsável, que estuda os fatos, os documentos e os prazos antes de definir a estratégia.
-              </p>
-              <p>
-                Tudo o que for compartilhado está protegido por sigilo profissional absoluto. A condução de cada demanda une combatividade técnica, rigor processual e respeito às regras éticas da advocacia.
+                Garantimos sigilo profissional absoluto. A condução de cada demanda une combatividade técnica, rigor processual e estrito respeito às regras éticas da advocacia.
               </p>
             </div>
           </div>
@@ -322,8 +381,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
           
           <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-start reveal" style="--reveal-delay: 100ms;">
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                Como funciona a primeira consulta?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">Como funciona a primeira consulta?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -334,8 +393,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             </details>
             
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                Vocês atendem apenas em Passos - MG?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">Vocês atendem apenas em Passos - MG?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -346,8 +405,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             </details>
             
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                Como funciona o Plantão Criminal?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">Como funciona o Plantão Criminal?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -358,8 +417,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             </details>
 
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                Quais documentos preciso ter em mãos?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">Quais documentos preciso ter em mãos?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -370,8 +429,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             </details>
 
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                Como são definidos os honorários?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">Como são definidos os honorários?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -382,8 +441,8 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
             </details>
 
             <details class="group border border-slate-700 bg-slate-800/40 rounded-lg open:bg-slate-800/80 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white">
-                O escritório atua em casos de divórcio e família?
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white text-base">O escritório atua em casos de divórcio e família?</h3>
                 <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div class="faq-content">
@@ -465,10 +524,13 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
         target="_blank"
         rel="noopener noreferrer"
         class="relative flex items-center justify-center w-14 h-14 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-400 text-emerald-600 rounded-full shadow-2xl shadow-white/10 hover:scale-110 transition-all duration-300 ease-out active:scale-95 border border-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
-        aria-label="Falar com um advogado pelo WhatsApp"
+        aria-label="Falar com um advogado pelo WhatsApp (Resposta rápida)"
       >
         <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={whatsappIcon} />
       </a>
+      <span class="absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap bg-slate-900 border border-slate-700 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg">
+        Fale Agora (Resp. Rápida)
+      </span>
     </div>
 
     <!-- 8. FOOTER -->
@@ -476,7 +538,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
       <div class="max-w-7xl mx-auto px-5 lg:px-8 py-12 text-sm text-slate-400">
         <div class="flex flex-col md:flex-row md:justify-between gap-6">
           <div>
-            <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogados" class="h-14 w-auto mb-4 opacity-90" width="166" height="56" loading="lazy" />
+            <img src="/images/logo-ferreira-transparent.png" alt="Ferreira Advogado - Logo Footer" class="h-14 w-auto mb-4 opacity-90" width="166" height="56" loading="lazy" />
             <p class="mt-1">Dr. Charles Santos Ferreira · OAB/MG 91.989</p>
             <p class="mt-1">Passos - MG</p>
           </div>
@@ -489,7 +551,7 @@ const whatsappIcon = `<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.5
         <p class="mt-10 pt-6 border-t border-white/10 text-xs leading-relaxed text-slate-500 max-w-3xl">
           Este site tem caráter informativo e respeita os preceitos do Código de Ética e Disciplina da OAB.
         </p>
-        <p class="mt-3 text-xs text-slate-600">&copy; {new Date().getFullYear()} Ferreira Advogados. Todos os direitos reservados.</p>
+        <p class="mt-3 text-xs text-slate-600">&copy; {new Date().getFullYear()} Ferreira Advogado. Todos os direitos reservados.</p>
       </div>
     </footer>
 
