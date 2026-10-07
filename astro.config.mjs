@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ferreiraadvogadopassos.com.br',
+  site: 'https://charlesferreiraadvogado.com.br',
   integrations: [tailwind()]
 });

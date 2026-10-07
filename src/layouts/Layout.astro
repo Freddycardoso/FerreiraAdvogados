@@ -9,7 +9,7 @@ const {
   description = "Advogado em Passos - MG para prisão, inquérito, demissão injusta, aposentadoria negada pelo INSS e disputas cíveis. Fale agora com o Dr. Charles Santos Ferreira (OAB/MG 91.989) pelo WhatsApp."
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://ferreiraadvogados.com.br");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://charlesferreiraadvogado.com.br");
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -54,11 +54,29 @@ const schemaData = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Ferreira Advogados" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- SEO Essencial -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Dr. Charles Santos Ferreira" />
+
+    <!-- GEO Tags -->
+    <meta name="geo.region" content="BR-MG" />
+    <meta name="geo.placename" content="Passos" />
+    <meta name="geo.position" content="-20.7188;-46.6081" />
+    <meta name="ICBM" content="-20.7188, -46.6081" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
